@@ -28,7 +28,8 @@
 		}
 	},
 	"scripts": {
-		"test": "phpunit",
+        "test": "phpunit",
+        "testdox": "phpunit --testdox",
 		"post-create-project-cmd": [
             "php -r \"copy('src/bin/.gitattributes', '.gitattributes');\"",
             "php -r \"unlink('src/bin/.gitattributes');\"",
@@ -40,7 +41,7 @@
             "php -r \"unlink('src/bin/phpunit.xml.dist');\"",
             "php -r \"copy('src/bin/README.md', 'README.md');\"",
             "php -r \"unlink('src/bin/README.md');\"",
-            "php -r \"rmdir(bin);\""
+            "php -r \"rmdir('src/bin');\""
         ]
 	}
 }

@@ -10,7 +10,7 @@ class StarterClass
    /**
     * @var string $version class properties - package version
     */
-    protected $version = '1.0';
+    protected static $version = '1.0';
 
     public static function getVersion()
     {
