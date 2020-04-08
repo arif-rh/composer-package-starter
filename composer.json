@@ -30,7 +30,17 @@
 	"scripts": {
 		"test": "phpunit",
 		"post-create-project-cmd": [
-            "Arifrh\\Packages\\Installer::postInstall"
+            "php -r \"copy('src/bin/.gitattributes', '.gitattributes');\"",
+            "php -r \"unlink('src/bin/.gitattributes');\"",
+            "php -r \"copy('src/bin/.gitignore', '.gitignore');\"",
+            "php -r \"unlink('src/bin/.gitignore');\"",
+            "php -r \"copy('src/bin/LICENSE', 'LICENSE');\"",
+            "php -r \"unlink('src/bin/LICENSE');\"",
+            "php -r \"copy('src/bin/phpunit.xml.dist', 'phpunit.xml.dist');\"",
+            "php -r \"unlink('src/bin/phpunit.xml.dist');\"",
+            "php -r \"copy('src/bin/README.md', 'README.md');\"",
+            "php -r \"unlink('src/bin/README.md');\"",
+            "php -r \"rmdir(bin);\""
         ]
 	}
 }
