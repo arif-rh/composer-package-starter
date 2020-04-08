@@ -1,0 +1,36 @@
+{
+    "name": "arif-rh/composer-package-starter",
+    "description": "Starter kit for creating composer packages.",
+    "homepage": "https://github.com/arif-rh/composer-package-starter",
+    "keywords": ["starter package", "pacakge template", "composer", "package"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arif Rahman Hakim",
+            "email": "arifrahmanhakim.net@gmail.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+		"php": ">=7.2"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "8.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arifrh\\Packages\\": "src"
+        }
+    },
+	"autoload-dev": {
+		"psr-4": {
+			"Arifrh\\PackagesTests\\": "tests"
+		}
+	},
+	"scripts": {
+		"test": "phpunit",
+		"post-create-project-cmd": [
+            "Arifrh\\Packages\\Installer::postInstall"
+        ]
+	}
+}
