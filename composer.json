@@ -31,16 +31,7 @@
         "test": "phpunit",
         "testdox": "phpunit --testdox",
 		"post-create-project-cmd": [
-            "php -r \"copy('src/.gitattributes', '.gitattributes');\"",
-            "php -r \"unlink('src/.gitattributes');\"",
-            "php -r \"copy('src/.gitignore', '.gitignore');\"",
-            "php -r \"unlink('src/.gitignore');\"",
-            "php -r \"copy('src/LICENSE', 'LICENSE');\"",
-            "php -r \"unlink('src/LICENSE');\"",
-            "php -r \"copy('src/phpunit.xml.dist', 'phpunit.xml.dist');\"",
-            "php -r \"unlink('src/phpunit.xml.dist');\"",
-            "php -r \"copy('src/README.md', 'README.md');\"",
-            "php -r \"unlink('src/README.md');\""
+            "php -r \"copy('src/.gitattributes', '.gitattributes');\""
         ]
 	}
 }
