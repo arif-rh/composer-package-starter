@@ -8,7 +8,7 @@
  * @link       https://bitbucket.org/arif-rh/ci3-installer
  */
 
-namespace Arifrh\Packages\Bin;
+namespace Arifrh\Packages;
 
 use Composer\Script\Event;
 
@@ -21,22 +21,17 @@ class Installer
      */
     public static function postInstall(Event $event = null)
     {
-        copy('src/bin/.gitattributes', './.gitattributes');
-        copy('src/bin/.gitignore', './.gitignore');
-        copy('src/bin/LICENSE', './LICENSE');
-        copy('src/bin/phpunit.xml.dist', './phpunit.xml.dist');
-        copy('src/bin/README.md', './README.md');
+        copy('src/Installer/.gitattributes', './.gitattributes');
+        copy('src/Installer/.gitignore', './.gitignore');
+        copy('src/Installer/LICENSE', './LICENSE');
+        copy('src/Installer/phpunit.xml.dist', './phpunit.xml.dist');
+        copy('src/Installer/README.md', './README.md');
 
         // Show message
         self::showMessage($event);
 
         // Delete unneeded files
         self::deleteSelf();
-    }
-
-    private static function composerUpdate()
-    {
-        passthru('composer update');
     }
 
     /**
@@ -56,7 +51,7 @@ class Installer
 
     private static function deleteSelf()
     {
-        self::recursiveRemoveDir('src/bin');
+        self::recursiveRemoveDir('src/Installer');
     }
 
     private static function recursiveRemoveDir($dir) 
