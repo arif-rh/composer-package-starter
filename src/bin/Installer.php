@@ -8,7 +8,7 @@
  * @link       https://bitbucket.org/arif-rh/ci3-installer
  */
 
-namespace Arifrh\Packages;
+namespace Arifrh\Packages\Bin;
 
 use Composer\Script\Event;
 
@@ -21,7 +21,12 @@ class Installer
      */
     public static function postInstall(Event $event = null)
     {
-        self::recursiveCopy('vendor/arif-rh/composer-package-starter/bin', './');
+        copy('src/bin/.gitattributes', './.gitattributes');
+        copy('src/bin/.gitignore', './.gitignore');
+        copy('src/bin/LICENSE', './LICENSE');
+        copy('src/bin/phpunit.xml.dist', './phpunit.xml.dist');
+        copy('src/bin/README.md', './README.md');
+
         // Show message
         self::showMessage($event);
 
@@ -51,7 +56,7 @@ class Installer
 
     private static function deleteSelf()
     {
-        self::recursiveRemoveDir('vendor/arif-rh/composer-package-starter/bin');
+        self::recursiveRemoveDir('src/bin');
     }
 
     private static function recursiveRemoveDir($dir) 

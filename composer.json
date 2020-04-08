@@ -30,7 +30,7 @@
 	"scripts": {
 		"test": "phpunit",
 		"post-create-project-cmd": [
-            "Arifrh\\Packages\\Installer::postInstall"
+            "Arifrh\\Packages\\Bin\\Installer::postInstall"
         ]
 	}
 }
